@@ -25,7 +25,7 @@ Window {
         anchors.fill: parent
         onClicked: {
             //Qt.quit();
-             myclase.receiveSomething("screen");
+             myclase.receiveSomething("click screen");
         }
     }
 
