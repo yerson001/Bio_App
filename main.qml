@@ -25,7 +25,7 @@ Window {
         anchors.fill: parent
         onClicked: {
             //Qt.quit();
-             myclase.receiveSomething("click screen");
+             myclase.receiveSomething("screen");
         }
     }
 
@@ -41,38 +41,108 @@ Window {
         text: myclase.someVar
     }
 
-   Rectangle {
-       width: 200
-       height: 100
-       color: "red"
 
-       Text {
+
+   Rectangle{
+       id: contenedor
+       width: 400
+       height: 300
+       color: "#333333"
+       anchors.centerIn: parent
+
+       Column{
+           spacing: 10
            anchors.centerIn: parent
-           text: "Hello, World!"
+
+           Row{
+               spacing: 10
+               Text{
+                   id: labelUsuario
+                   text: "Usuario"
+                   color: "#ffffff"
+                   font.pixelSize: 20
+               }
+               Rectangle{
+                   id: areaTextInput
+                   width: 200
+                   height: 30
+                   color: "#ffffff"
+                   anchors.margins: 30
+                   focus: false
+                   TextInput{
+                       id: textInputUsuario
+                       text: "Ingrese usuario"
+                       anchors.fill: parent
+                       font.pixelSize: 20
+                       focus: false
+                       onFocusChanged: {
+                           if(focus && text === "Ingrese usuario"){
+                               textInputUsuario.text = " "
+                           }else{
+                               if(text===""){
+                                   text = "Ingrese usuario"
+                               }
+                           }
+                       }
+                   }
+               }
+           }
+
        }
-
    }
 
 
-   TextInput {
-       text: "input: "
-       x: 100
-       y:100
-       cursorVisible: true
-   }
+
+
+
 
    Button{
        id: mybutton
-       anchors.centerIn: parent
+       x: 300
+       y: 400
+       //anchors.centerIn: parent
+
        text: "Click me"
        //onClicked: myclase.receiveSomething(" button")
        //este es un comentario para lo de qml
        //este es un el segundo comtario
-       onClicked: myclase.setSomeVar("hello connection")
+       onClicked: myclase.setSomeVar(textInputUsuario.text)
+
+   }
+
+
+   Button{
+       id: mybutton1
+       x: 500
+       y: 400
+       //anchors.centerIn: parent
+
+       text: "Click me"
+       onClicked: myclase.receiveSomething(textInputUsuario.text)
+       //este es un comentario para lo de qml
+       //este es un el segundo comtario
+       //onClicked: myclase.setSomeVar(textInputUsuario.text)
 
    }
 
 
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
