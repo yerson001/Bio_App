@@ -20,11 +20,13 @@ public:
 
 signals:
     void someVarChanged();
+    void valueChanged(QString s);
 
 public slots:
     void receiveSomething(QString);
 
     void setSomeVar(QString);
+    void changeValue(int a);
 private:
     QString m_someVar;
 };

@@ -36,3 +36,33 @@ void Receiver::setSomeVar(QString new_var)
     }
 
 }
+
+
+void Receiver::changeValue(int a)
+{
+    if(a==1){
+        valueChanged("value now is 1, from c++");
+    }
+    else if(a==2){
+        valueChanged("now value is 2, from c++");
+    }
+    else{
+        valueChanged("!!!!!!");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

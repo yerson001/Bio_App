@@ -102,7 +102,7 @@ Window {
        y: 400
        //anchors.centerIn: parent
 
-       text: "Click me"
+       text: "fist button"
        //onClicked: myclase.receiveSomething(" button")
        //este es un comentario para lo de qml
        //este es un el segundo comtario
@@ -117,12 +117,26 @@ Window {
        y: 400
        //anchors.centerIn: parent
 
-       text: "Click me"
-       onClicked: myclase.receiveSomething(textInputUsuario.text)
+       text: "Second button"
+       onClicked: myclase.changeValue(1)
        //este es un comentario para lo de qml
        //este es un el segundo comtario
        //onClicked: myclase.setSomeVar(textInputUsuario.text)
 
+   }
+
+
+   Label{
+       id:label
+       x: 20
+       y: 88
+       width: 355
+       height: 62
+       text: "LABEL"
+       Connections{
+           target: myclase
+           onValueChanged: label.text = s;
+       }
    }
 
 
